@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function oauth_jwt_theme($existing, $type, $theme, $path) {
+  return [
+    'clientkey_template' => [
+      'variables' => ['uid' => NULL, 'ckid' => NULL],
+    ],
+    'tablekey_template' => [
+      'variables' => ['uid' => NULL, 'ckid' => NULL],
+    ],
+  ];
+}

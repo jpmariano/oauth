@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Module file for miniOrange OAuth Server Module.
+ */
+use Symfony\Component\HttpFoundation\RedirectResponse;
+/**
+* Implements hook_menu().
+*/
+function oauth_server_sso_user_login($account)
+{
+  global $base_url;
+  if(isset($_GET['q']) && $_GET['q'] == 'mo_redirect'){
+    $redirecting_url= \Drupal::config('oauth_server_sso.settings')->get('oauth_server_sso_red');
+    $response = new RedirectResponse($redirecting_url);
+    $request  = \Drupal::request();
+    $request->getSession()->save();
+    $response->prepare($request);
+    \Drupal::service('kernel')->terminate($request, $response);
+    $response->send();exit();
+    return new Response();
+   }
+
+}

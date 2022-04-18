@@ -1,0 +1,9 @@
+name: Oauth 2 Jwt
+type: module
+description: 'To turn your Drupal 9 into an authorization server'
+core_version_requirement: ^8 || ^9
+package: Authentication
+dependencies:
+  - drupal:system (>=8.7.x)
+  - drupal:image
+  - node

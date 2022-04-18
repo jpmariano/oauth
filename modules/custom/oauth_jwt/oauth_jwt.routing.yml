@@ -1,0 +1,43 @@
+oauth_jwt:
+    path: '/authorize'
+    defaults:
+        _controller: Drupal\oauth_jwt\Controller\AuthController::authorizePage
+    requirements:
+        _permission: 'access content'
+autorization_form.basic_form:
+  path: '/authorize/login'
+  defaults:
+    _title: 'Login form'
+    _form: '\Drupal\oauth_jwt\Form\LoginForm'
+  requirements:
+    _permission: 'access content'
+oauth_jwt.api_keys:
+  path: '/api-keys/{uid}'
+  defaults:
+    _title: 'Client Keys'
+    _controller: Drupal\oauth_jwt\Controller\ClientkeysController::clientkeyPage
+  requirements:
+    _permission: 'access content'
+oauth_jwt.api_keys.edit:
+  path: '/api-keys/{uid}/{ckid}/edit'
+  defaults:
+    _title: 'Client Keys'
+    _controller: Drupal\oauth_jwt\Controller\ClientkeyseditController::clientkeyeditPage
+  requirements:
+    _permission: 'access content'
+oauth_jwt.keygen:
+  path: '/keygen'
+  defaults:
+    _controller: Drupal\oauth_jwt\Controller\KeygenController::generate
+  requirements:
+      methods: 'GET'
+      _access: 'TRUE'
+      _format: 'string'
+oauth_jwt.api-keys.post:
+  path: '/api-keys'
+  defaults:
+    _controller: \Drupal\oauth_jwt\Controller\AddclientkeysController::add
+  requirements:
+    methods: 'POST'
+    _access: 'TRUE'
+    _format: 'json'

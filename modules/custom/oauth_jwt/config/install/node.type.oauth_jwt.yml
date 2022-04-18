@@ -1,0 +1,14 @@
+
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - oauth_jwt
+name: 'Oauth JWT'
+type: oauth_jwt
+description: 'Content type for Oauth JWT Key and Token.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

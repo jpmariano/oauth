@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+    config:
+        - core.entity_view_mode.node.teaser
+        - field.field.node.oauth_jwt.field_key
+        - node.type.oauth_jwt
+    module:
+        - field
+        - user
+id: node.oauth_jwt.teaser
+targetEntityType: node
+bundle: oauth_jwt
+mode: teaser
+content:
+    field_key:
+        label: above
+        type: string
+        weight: 101
+        third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }

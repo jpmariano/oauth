@@ -1,0 +1,3 @@
+services:
+    oauth_jwt.keygen.generatekey:
+        class: Drupal\oauth_jwt\Keygen\GenerateKey

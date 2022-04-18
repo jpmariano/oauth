@@ -1,0 +1,10 @@
+name: 'miniOrange OAuth Server'
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9
+description: 'This module allows users residing in your Drupal site to login into your client apps.'
+configure: oauth_server_sso.config_client
+# Information added by Drupal.org packaging script on 2022-02-11
+version: '8.x-1.21'
+project: 'oauth_server_sso'
+datestamp: 1644582256

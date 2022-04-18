@@ -1,0 +1,36 @@
+{% if ckid == NULL %}
+  <form id="clientapp-form">
+{% else %}
+  <form id="clientapp-form-edit">
+{% endif %}
+  <div class="form-group">
+    <label for="clientapp">APP</label>
+    <select class="form-control" id="clientapp">
+      <option value="1">site1.example.com</option>
+      <option value="2">site2.example.com</option>
+      <option value="3">site3.example.com</option>
+      <option value="4">site4.example.com</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="clientkey">Client Key</label>
+    <input type="text" class="form-control" id="clientkey" aria-describedby="clientkeyHelp"  name="clientkey" readonly>
+    <button type="button" class="client-key-generator">Generate Key</button>
+  </div>
+  <div class="form-group">
+    <label for="clientsecret">Client Secret</label>
+    <input type="text" class="form-control" id="clientsecret" name="clientsecret" readonly>
+    <button type="button" class="client-secret-generator">Generate Secret</button>
+  </div>
+  <div class="form-group">
+    <input type="hidden" id="uid" name="uid" value={{ uid }} >
+    {% if ckid != NULL %}
+    <input type="hidden" id="ckid" name="ckid"  value={{ ckid }} >
+    {% endif %}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{ tablekey_template }}
+<p>uid: {{ uid }}</p>
+<p>nid: {{ ckid }}</p>

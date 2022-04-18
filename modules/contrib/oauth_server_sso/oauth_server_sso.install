@@ -1,0 +1,78 @@
+<?php
+/**
+ * @file
+ * Installation file for miniOrange OAuth Server Module.
+ */
+
+
+use \Drupal\oauth_server_sso\Utilities;
+use \Drupal\oauth_server_sso\feedback;
+
+/**
+ * Configure variables are cleared when module is uninstalled.
+ **/
+ function oauth_server_sso_uninstall() {
+   $config = \Drupal::config('oauth_server_sso.settings');
+   if ($config->get('miniorange_oauth_uninstall_status') === 0)
+   {
+     $drupal_is_cli = Utilities::drupal_is_cli();
+     if( !$drupal_is_cli )
+     {
+       feedback::miniorange_oauth_server_feedback();
+     }
+   }
+ }
+
+
+
+/**
+ * Implements hook_install().
+ */
+function oauth_server_sso_install() {
+  \Drupal::configFactory()->getEditable('oauth_server_sso.settings')->set('miniorange_oauth_uninstall_status', 0)->save();
+}
+
+  /**
+  * Implementing hook_schema
+  **/
+
+function oauth_server_sso_schema() {
+  $schema['oauth_server_sso_token'] = array(
+    'description' => t('User Tokens'),
+    'fields' => array(
+    'id' => array(
+      'type' => 'serial',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'description' => t('S.No.: '),
+      ),
+    'user_id_val' => array(
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'description' => t('The UserIn of the user.'),
+      ),
+	  'auth_code' => array(
+        'type' => 'varchar',
+        'length' => 256,
+        'description' => t('The one time authorization code.'),
+    ),
+    'auth_code_expiry_time' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+        'description' => t('The one time authorization code expiry time.'),
+    ),
+	  'access_token' => array(
+        'description' => 'The access token.',
+        'type' => 'varchar',
+        'length' => 256,
+	  ),
+    'access_token_request_time' => array(
+        'description' => 'The access token expiry time.',
+        'type' => 'int',
+        'not null' => FALSE,
+	  ),
+	),
+	'primary key' => array('id'),
+  );
+  return $schema;
+}

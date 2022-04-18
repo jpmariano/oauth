@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uid
+    - node.type.oauth_jwt
+id: node.oauth_jwt.field_uid
+field_name: field_uid
+entity_type: node
+bundle: oauth_jwt
+label: UID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,12 @@
+/*Font Loded*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
+.btn-custom {
+  color: #bdc3c7;
+  font-size: 18px;
+  border: 1px solid #bdc3c7;
+}
+.btn-custom:hover {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}

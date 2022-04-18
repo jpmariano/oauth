@@ -1,0 +1,22 @@
+oauth_server_sso.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    oauth_server_sso_customer_admin_email:
+      type: 'NULL'
+    oauth_server_sso_license_key:
+      type: 'NULL'
+    oauth_server_sso_customer_id:
+      type: string
+    oauth_server_sso_customer_admin_token:
+      type: string
+    oauth_server_sso_customer_api_key:
+      type: string
+    oauth_server_sso_name:
+      type: string
+    oauth_server_sso_customer_admin_phone:
+      type: 'NULL'
+    oauth_server_sso_tx_id:
+      type: 'NULL'
+    oauth_server_sso_customer_admin_password:
+      type: string

@@ -1,0 +1,37 @@
+oauth_jwt_login:
+  version: 1.x
+  header: false
+  css:
+     state:
+          css/oauth_jwt_login.css: {}
+  js:
+    js/oauth_jwt_login.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+clientsecret_widget:
+  version: 1.x
+  header: false
+  css:
+     state:
+          css/clientsecret_widget.css: {}
+  js:
+    js/clientsecret_widget.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+api_keys:
+  version: 1.x
+  header: false
+  css:
+     state:
+          css/api_keys.css: {}
+  js:
+    js/api_keys.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+
